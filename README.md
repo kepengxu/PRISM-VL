@@ -15,6 +15,7 @@
 <p align="center">
   <a href="https://kepengxu.github.io/projects/prism-vl/">Project Page</a> ·
   <a href="https://arxiv.org/abs/2605.11727">arXiv:2605.11727</a> ·
+  <a href="https://openreview.net/forum?id=fsCtGojL2R">Synthetic RAW precursor</a> ·
   <a href="https://huggingface.co/datasets/kepeng/MeasL-Bench-V1">MeasL-Bench-V1</a> ·
   <a href="https://huggingface.co/datasets/kepeng/MeasL-150K-V1">MeasL-150K-V1</a> ·
   <a href="https://huggingface.co/kepeng/PRSIMVL-LoRA-V1">Weights</a> ·
@@ -96,6 +97,7 @@ RGB is a display-oriented product of an image signal processor. It is useful, co
 
 The examples below show low-illumination text cases where RGB rendering exposes misleading evidence while Meas.-XYZ keeps the answer region recoverable.
 
+
 | Case | RGB Observation | Meas.-XYZ Observation |
 |---|---|---|
 | Illuminated shop name | <img src="assets/example_ler_shop_rgb.png" width="260"><br>RGB answer: **Hua Tian Hua** (wrong) | <img src="assets/example_ler_shop_measxyz.png" width="260"><br>PRSIMVL answer: **Zhengmei Dental Clinic** |
@@ -106,6 +108,12 @@ Zoomed evidence crops:
 | RGB crop | Meas.-XYZ crop | RGB crop | Meas.-XYZ crop |
 |---|---|---|---|
 | <img src="assets/example_ler_shop_crop_rgb.png" width="180"> | <img src="assets/example_ler_shop_crop_measxyz.png" width="180"> | <img src="assets/example_ler_sign_crop_rgb.png" width="180"> | <img src="assets/example_ler_sign_crop_measxyz.png" width="180"> |
+
+## Earlier Synthetic-RAW Version
+
+This release builds on our earlier synthetic-RAW prototype, [**End-to-End RAW Synergy for Elevated Vision-Language Reasoning**](https://openreview.net/forum?id=fsCtGojL2R), which introduced Raw-VLM with a learnable ISP frontend and RAW-tokenization for VLM reasoning. That first version used synthetic RAW data to study whether RAW sensor information can improve captioning, VQA, and hallucination behavior.
+
+PRSIMVL extends that direction toward a release centered on measurement-grounded inputs: RAW-derived **Meas.-XYZ**, camera metadata grounding, MeasL-Bench-V1, MeasL-150K-V1, and released Qwen3-VL LoRA adapters.
 
 ## Main Results
 
@@ -293,7 +301,8 @@ PRSIMVL/
 
 ## Citation
 
-Paper: [Allegory of the Cave: Measurement-Grounded Vision-Language Learning](https://arxiv.org/abs/2605.11727)  
+Main paper: [Allegory of the Cave: Measurement-Grounded Vision-Language Learning](https://arxiv.org/abs/2605.11727)  
+Earlier synthetic-RAW version: [End-to-End RAW Synergy for Elevated Vision-Language Reasoning](https://openreview.net/forum?id=fsCtGojL2R)  
 Project page: <https://kepengxu.github.io/projects/prism-vl/>  
 Author homepage: <https://kepengxu.github.io/>
 
@@ -305,5 +314,13 @@ Author homepage: <https://kepengxu.github.io/>
   eprint        = {2605.11727},
   archivePrefix = {arXiv},
   url           = {https://arxiv.org/abs/2605.11727}
+}
+
+@inproceedings{xu2025rawvlm,
+  title     = {End-to-End RAW Synergy for Elevated Vision-Language Reasoning},
+  author    = {Xu, Kepeng and Qiao, Tong and Liu, Zhenyang and Xu, Li and He, Gang},
+  booktitle = {IJCAI 2025 Workshop on Multimodal Knowledge and Language Modeling (MKLM)},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=fsCtGojL2R}
 }
 ```
