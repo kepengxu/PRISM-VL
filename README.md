@@ -100,7 +100,7 @@ The examples below show low-illumination text cases where RGB rendering exposes 
 
 | Case | RGB Observation | Meas.-XYZ Observation |
 |---|---|---|
-| Illuminated shop name | <img src="assets/example_ler_shop_rgb.png" width="260"><br>RGB answer: **Hua Tian Hua** (wrong) | <img src="assets/example_ler_shop_measxyz.png" width="260"><br>PRSIMVL answer: **Zhengmei Dental Clinic** |
+| Illuminated shop name | <img src="assets/example_ler_shop_rgb.png" width="260"><br>RGB answer: **Hua Tian Hua** (wrong) | <img src="assets/example_ler_shop_measxyz.png" width="260"><br>PRSIMVL answer: **正美口腔** |
 | Yellow sign text | <img src="assets/example_ler_sign_rgb.png" width="260"><br>RGB answer: **diamond** (wrong) | <img src="assets/example_ler_sign_measxyz.png" width="260"><br>PRSIMVL answer: **BLACK** |
 
 Zoomed evidence crops:
