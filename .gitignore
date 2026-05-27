@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+.conda/
+
+# Local experiment outputs
+eval/output_benchmark/
+eval/output_*/
+eval/prepared_data/
+inference/output*/
+scripts/test_raw_eval_pipeline_opt/output*/
+runs/
+wandb/
+logs/
+*.log
+
+# Training resume state is intentionally excluded from the public inference artifact.
+optimizer.pt
+scheduler.pt
+trainer_state.json
+rng_state_*.pth
+training_args.bin
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+exps/
+
+# Large artifact folders are restored from release storage. Keep lightweight
+# README files trackable when these directories are not separate Git repos.
+training_data/*
+!training_data/README.md
+eval_data/*
+!eval_data/README.md

@@ -1,0 +1,4 @@
+-e libs/datasets-3.6.0
+-e libs/qwen-vl-utils
+-e libs/transformers-4.57.3
+-e .

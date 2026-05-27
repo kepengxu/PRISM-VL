@@ -1,0 +1,29 @@
+[
+  {
+    "dataset_name": "MEASL/TRAIN_150K_V1",
+    "tags": [
+      "multi-modal",
+      "vqa",
+      "raw"
+    ],
+    "dataset_path": "../../../../training_data/train.jsonl"
+  },
+  {
+    "dataset_name": "MEASL/TRAIN_150K_V1_EXTRA",
+    "tags": [
+      "multi-modal",
+      "vqa",
+      "raw"
+    ],
+    "dataset_path": "../../../../training_data/train.jsonl"
+  },
+  {
+    "dataset_name": "MEASL/BENCH_RAW_V1",
+    "dataset_path": "../../../../eval_data/test_raw_full_benchmark.jsonl",
+    "tags": [
+      "multi-modal",
+      "vqa",
+      "raw"
+    ]
+  }
+]

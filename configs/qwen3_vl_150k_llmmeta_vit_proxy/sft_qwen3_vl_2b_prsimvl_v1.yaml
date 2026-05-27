@@ -1,0 +1,74 @@
+# SFT config for Qwen3-VL-2B-Instruct (PRSIMVL v1, residual camera metadata in ViT)
+# Environment variables (set before running):
+# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+# export IMAGE_MAX_TOKEN_NUM=1024
+# export VIDEO_MAX_TOKEN_NUM=32
+# export FPS_MAX_FRAMES=16
+# export CUDA_VISIBLE_DEVICES=5
+
+# Model args
+model: Qwen/Qwen3-VL-2B-Instruct
+train_type: lora
+torch_dtype: bfloat16
+camera_metadata_residual_enabled: true
+camera_metadata_residual_num_layers: 2
+camera_metadata_require_all: false
+camera_metadata_norm_scheme: photographic_log
+
+# Dataset args
+custom_dataset_info: swift/llm/dataset/data/custom_dataset_info_qwen35.json
+use_hf: true
+dataset:
+  - MEASL/TRAIN_150K_V1
+  - MEASL/TRAIN_150K_V1_EXTRA
+val_dataset:
+  - MEASL/BENCH_RAW_V1
+load_from_cache_file: false
+remove_unused_columns: false
+
+# LoRA args
+lora_rank: 8
+lora_alpha: 32
+target_modules: all-linear
+
+# Freezing args
+freeze_vit: false
+freeze_aligner: true
+freeze_llm: false
+
+# Training args
+max_steps: 100000
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 4
+learning_rate: 1e-4
+warmup_ratio: 0.05
+
+# Optimization args
+attn_impl: flash_attn
+padding_free: false
+packing: false
+gradient_checkpointing: true
+vit_gradient_checkpointing: false
+
+# Distributed training args
+# deepspeed: zero0  # Disabled for single GPU training to avoid MPI requirement
+# Options: zero0, zero1, zero2, zero3, zero2_offload, zero3_offload
+
+# Data processing args
+max_length: 5120
+truncation_strategy: delete
+dataset_num_proc: 16  # set to 1 only if multiprocessing dataset type conflicts occur
+dataloader_num_workers: 8
+group_by_size: true
+max_new_tokens: 2048
+dataloader_drop_last: true
+
+# Logging & Saving args
+output_dir: exps/BANALCED_150K_META_VIT_PROXY/output-Qwen3-VL-2B-Instruct
+eval_steps: 5000
+save_steps: 5000
+save_total_limit: 20
+logging_steps: 5
+save_only_model: false
+# resume_from_checkpoint: set only when resuming a previous run

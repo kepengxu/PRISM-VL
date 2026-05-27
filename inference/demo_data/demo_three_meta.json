@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "image": "inference/demo_data/images/demo1_pole_color.png",
+    "question": "This is a linear Image with Metadata: ISO: 250, Exposure Time: 1/640, Aperture: f/9.\nWhat is the color of the vertical pole visible through the windshield?"
+  },
+  {
+    "id": 2,
+    "image": "inference/demo_data/images/demo2_shadow_check.png",
+    "question": "This is a linear Image with Metadata: ISO: 200, Exposure Time: 1/400, Aperture: f/3.5.\nAre there sharp shadows on the walls that would indicate direct sunlight?"
+  },
+  {
+    "id": 3,
+    "image": "inference/demo_data/images/demo3_orange_object.png",
+    "question": "This is a linear Image with Metadata: ISO: 640, Exposure Time: 1/1000, Aperture: f/8.\nWhat small orange object is placed next to the gray plush toy on the dashboard?"
+  }
+]
