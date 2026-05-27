@@ -17,6 +17,7 @@
   <a href="https://arxiv.org/abs/2605.11727">arXiv:2605.11727</a> ·
   <a href="https://huggingface.co/datasets/kepeng/MeasL-Bench-V1">MeasL-Bench-V1</a> ·
   <a href="https://huggingface.co/datasets/kepeng/MeasL-150K-V1">MeasL-150K-V1</a> ·
+  <a href="https://huggingface.co/kepeng/PRSIMVL-LoRA-V1">Weights</a> ·
   <a href="README_CN.md">中文</a>
 </p>
 
@@ -44,7 +45,7 @@ PRSIMVL keeps the familiar Qwen3-VL training and inference workflow, but changes
 | Core idea | Use RAW-derived Meas.-XYZ and capture metadata when RGB rendering clips, denoises, tone maps, or quantizes away evidence. |
 | Benchmark | [MeasL-Bench-V1](https://huggingface.co/datasets/kepeng/MeasL-Bench-V1), 2,183 held-out matched examples over 14 measurement-sensitive capability slices. |
 | Training data | [MeasL-150K-V1](https://huggingface.co/datasets/kepeng/MeasL-150K-V1), 152,517 instruction-tuning examples with 48,000 release images. |
-| Model family | Qwen3-VL 2B, 4B, and 8B with released PRSIMVL LoRA adapters. |
+| Model family | Qwen3-VL 2B, 4B, and 8B with released PRSIMVL LoRA adapters hosted on [Hugging Face](https://huggingface.co/kepeng/PRSIMVL-LoRA-V1). |
 | Headline result | PRSIMVL-8B improves over RGB Qwen3-VL-8B by **+0.1074 BLEU**, **+0.1071 ROUGE-L**, and **+4.46 LLM-Judge points** on MeasL-Bench. |
 
 ## Start Here
@@ -87,7 +88,7 @@ training_data/   # MeasL-150K-V1 JSONL + image/
 exps/            # released LoRA adapters
 ```
 
-Download the public data from Hugging Face: [MeasL-Bench-V1](https://huggingface.co/datasets/kepeng/MeasL-Bench-V1) for evaluation and [MeasL-150K-V1](https://huggingface.co/datasets/kepeng/MeasL-150K-V1) for training. Restore released adapters under `exps/` before running adapter inference or full evaluation.
+Download the public data from Hugging Face: [MeasL-Bench-V1](https://huggingface.co/datasets/kepeng/MeasL-Bench-V1) for evaluation and [MeasL-150K-V1](https://huggingface.co/datasets/kepeng/MeasL-150K-V1) for training. Released LoRA weights are hosted at [kepeng/PRSIMVL-LoRA-V1](https://huggingface.co/kepeng/PRSIMVL-LoRA-V1); restore them under `exps/` before running adapter inference or full evaluation.
 
 ## Why Measurement Grounding Matters
 
@@ -143,7 +144,7 @@ The table reports the held-out MeasL-Bench protocol. BLEU and ROUGE-L are lexica
 | Demo inference | [`inference/`](inference/) | OpenAI-compatible `swift deploy` service demo for local images. |
 | Evaluation wrapper | [`eval/`](eval/) | Reproducible MeasL-Bench inference and offline evaluation entrypoint. |
 | Training configs | [`configs/qwen3_vl_150k_llmmeta_vit_proxy/`](configs/qwen3_vl_150k_llmmeta_vit_proxy/) | Launch scripts and SFT configs for 2B, 4B, and 8B. |
-| Released adapters | `exps/` | LoRA checkpoints expected at the paths listed below. |
+| Released adapters | [`exps/`](exps/) and [HF](https://huggingface.co/kepeng/PRSIMVL-LoRA-V1) | LoRA checkpoints for Qwen3-VL 2B, 4B, and 8B. |
 
 ## Benchmark And Data
 
@@ -258,7 +259,9 @@ The corresponding config files are:
 
 ## Released Weights
 
-| Size | Base Model | LoRA Checkpoint |
+Released PRSIMVL LoRA weights are hosted on Hugging Face: [kepeng/PRSIMVL-LoRA-V1](https://huggingface.co/kepeng/PRSIMVL-LoRA-V1). The local release expects the same checkpoint layout under `exps/BANALCED_150K_META_VIT_PROXY/`.
+
+| Size | Base Model | Local LoRA Checkpoint |
 |---|---|---|
 | 2B | `Qwen/Qwen3-VL-2B-Instruct` | `exps/BANALCED_150K_META_VIT_PROXY/output-Qwen3-VL-2B-Instruct/v8-20260421-133546/checkpoint-95000` |
 | 4B | `Qwen/Qwen3-VL-4B-Instruct` | `exps/BANALCED_150K_META_VIT_PROXY/output-Qwen3-VL-4B-Instruct/v12-20260425-113029/checkpoint-85000` |

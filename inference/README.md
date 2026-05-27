@@ -68,6 +68,8 @@ The helper intentionally prints only the model answer so it can be used in shell
 
 ## Adapter Choices
 
+Released LoRA weights are hosted on Hugging Face: [kepeng/PRSIMVL-LoRA-V1](https://huggingface.co/kepeng/PRSIMVL-LoRA-V1). Restore them under `exps/BANALCED_150K_META_VIT_PROXY/` before launching `swift deploy`.
+
 | Size | Base model | Adapter path |
 |---|---|---|
 | 2B | `Qwen/Qwen3-VL-2B-Instruct` | `exps/BANALCED_150K_META_VIT_PROXY/output-Qwen3-VL-2B-Instruct/v8-20260421-133546/checkpoint-95000` |
